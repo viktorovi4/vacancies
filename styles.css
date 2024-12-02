@@ -23,14 +23,15 @@ header h1 {
 }
 
 .job-listing {
-    display: flex;
-    flex-direction: column;
+    display: grid; /* Используем grid для адаптации */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
 
 .job {
     display: flex;
+    flex-direction: column; /* Изменяется на вертикальное направление на маленьких экранах */
     align-items: center;
     background-color: white;
     border-radius: 5px;
@@ -43,21 +44,24 @@ header h1 {
     width: 80px;
     height: 80px;
     object-fit: contain;
-    margin-right: 20px;
+    margin-bottom: 10px; /* Убираем margin-right, чтобы логотип не мешал на маленьких экранах */
 }
 
 .job-info {
     padding: 10px;
     flex: 1;
+    text-align: center; /* Центрирование на маленьких экранах */
 }
 
 .job-info h2 {
     margin-top: 0;
+    font-size: 1.2em;
 }
 
 .job-details ul {
     list-style-type: disc;
     padding-left: 20px;
+    text-align: left; /* Для читабельности списка */
 }
 
 .apply-button {
@@ -74,7 +78,6 @@ header h1 {
     background-color: #45a049;
 }
 
-
 /* Стили для подвала */
 footer {
     background-color: #333;
@@ -89,4 +92,57 @@ footer {
 
 .footer-content p {
     margin: 5px 0;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .job {
+        flex-direction: column; /* Вертикальное направление */
+        align-items: center;
+        text-align: center;
+    }
+
+    .job-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .job-info {
+        padding: 5px;
+    }
+
+    .job-info h2 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .job-info h2 {
+        font-size: 1em;
+    }
+
+    .apply-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
 }
