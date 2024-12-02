@@ -22,8 +22,42 @@ header h1 {
     margin: 0;
 }
 
+/* Строка поиска */
+.search-container {
+    background-color: #4CAF50;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#search-input {
+    flex: 1;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #45a049;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
 .job-listing {
-    display: grid; /* Используем grid для адаптации */
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 20px;
@@ -31,7 +65,7 @@ header h1 {
 
 .job {
     display: flex;
-    flex-direction: column; /* Изменяется на вертикальное направление на маленьких экранах */
+    flex-direction: column;
     align-items: center;
     background-color: white;
     border-radius: 5px;
@@ -44,13 +78,13 @@ header h1 {
     width: 80px;
     height: 80px;
     object-fit: contain;
-    margin-bottom: 10px; /* Убираем margin-right, чтобы логотип не мешал на маленьких экранах */
+    margin-bottom: 10px;
 }
 
 .job-info {
     padding: 10px;
     flex: 1;
-    text-align: center; /* Центрирование на маленьких экранах */
+    text-align: center;
 }
 
 .job-info h2 {
@@ -61,7 +95,7 @@ header h1 {
 .job-details ul {
     list-style-type: disc;
     padding-left: 20px;
-    text-align: left; /* Для читабельности списка */
+    text-align: left;
 }
 
 .apply-button {
@@ -104,8 +138,23 @@ footer {
         font-size: 1.5em;
     }
 
+    .search-container {
+        flex-direction: column;
+        padding: 15px 10px;
+    }
+
+    #search-input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
     .job {
-        flex-direction: column; /* Вертикальное направление */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
