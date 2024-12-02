@@ -129,11 +129,12 @@ footer {
 /* Адаптивные стили для ПК */
 @media (min-width: 1024px) {
     .job-listing {
-        flex-direction: column; /* Оставляем все вакансии в колонке */
+        display: block; /* Убираем flex, делаем вертикальную раскладку */
     }
 
     .job {
         width: 100%; /* Каждая вакансия занимает всю ширину контейнера */
+        margin: 0 auto;
     }
 
     .search-container input[type="text"] {
