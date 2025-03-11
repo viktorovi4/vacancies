@@ -2,292 +2,186 @@
 <html lang="ru">
 <head>
         <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();
-       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
-       ym(98486998, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-       });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/98486998" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+        <script type="text/javascript" >
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+         
+            ym(98486998, "init", {
+                 clickmap:true,
+                 trackLinks:true,
+                 accurateTrackBounce:true,
+                 webvisor:true
+            });
+         </script>
+         <noscript><div><img src="https://mc.yandex.ru/watch/98486998" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+         <!-- /Yandex.Metrika counter -->    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Простая работа</title>
+    <title>Работа курьером</title>
+    <link rel="icon" type="image/png"  href="images/delivery-man.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/delivery-man-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/delivery-man-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/delivery-man-180x180.png">    
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/icon.png" type="image/x-icon">
-    <script>
-        function searchJobs() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const jobs = document.querySelectorAll('.job-listing .job');
-            jobs.forEach(job => {
-                const jobText = job.innerText.toLowerCase();
-                if (jobText.includes(query)) {
-                    job.style.display = 'block';
-                } else {
-                    job.style.display = 'none';
-                }
-            });
-        }
-    </script>
-    <style>
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .search-container {
-            display: flex;
-            align-items: center;
-        }
-        #search-input {
-            margin-left: 10px;
-            padding: 5px;
-        }
-        button {
-            margin-left: 5px;
-            padding: 5px 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-container">
-                <h1>Простая работа</h1>    
-                <h1>Вакансии</h1>
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Поиск вакансий...">
-                    <button onclick="searchJobs()">Поиск</button>
-                </div>
-            </div>
-        </header>
-        <div class="job-listing">
-            <div class="job">
-                <img src="images/озон-фреш.png" alt="Логотип компании" class="job-logo">
-                <div class="job-info">
-                    <h2>Сотрудник склада в распределительный центр OZON-fresh</h2>
-                    <div class="job-details">
-                        <h3>Условия</h3>
-                        <ul>
-                            <li>ЗП - От 80 000 руб. до вычета</li>
-                            <li>Стандартный график 3/3 (по 12 часов):</li> 
-                            <li>с 9:00 - 21:00 дневные</li>    
-                            <li>с 21:00 - 9:00 ночные (За ночные + 20% доплата к окладу) </li> 
-                            <li>ДМС от 6 месяцев работы</li>
-                            <li>Оплачиваемое обучение с первого рабочего дня</li>
-                        </ul>
-                        <a href="https://trk.ppdu.ru/click/Sv3EhLsK?erid=2SDnjdkM1WY" class="apply-button" target="_blank">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-                    
-        <div class="job-listing">
-            <div class="job">
-                <img src="images/озон.png" alt="Логотип компании" class="job-logo">
-                <div class="job-info">
-                    <h2>Оператор склада в OZON </h2>
-                    <div class="job-details">
-                        <h3>Условия</h3>
-                        <ul>
-                            <li>Гибкий график работы, который подбирается индивидуально</li>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Работа курьером</h1>
 
-                        </ul>
-                        <a href="https://trk.ppdu.ru/click/snQff42O?erid=Kra23pBTF" class="apply-button" target="_blank">Подробнее</a>
-                    </div>
-                </div>
+                <!-- Кнопка для мобильного меню -->
+                <label for="mobile-menu-toggle" class="mobile-menu-icon">&#9776;</label>
+                <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+                <!-- Навигационное меню -->
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#about">Условия работы</a></li>
+                        <li><a href="#vacancies">Требования</a></li>
+                        <li><a href="#how-to-become">Как стать курьером</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                    </ul>
+                </nav>
+                <a href="https://trk.ppdu.ru/click?uid=20986&pid=1&oid=31ba9c13-4847-41f9-bc4a-1f4a1fbced43&erid=Kra23uVC3">
+                    <button class="apply-btn">Стать курьером</button>
+                </a>
             </div>
-            
-        <div class="job-listing">
-            <div class="job">
-                <img src="images/яндекс-лавка.png" alt="Логотип компании" class="job-logo">
-                <div class="job-info">
-                    <h2>Кладовщик в Яндекс Лавка </h2>
-                    <div class="job-details">
-                        <h3>Условия</h3>
-                        <ul>
-                            <li>Доход  до 101 149 до вычета налога</li>
-                            <li>Есть распродажа для сотрудников, скидка до 70% на продукты питания! ( все продукты с хорошим сроком годности)</li> 
-                            <li>разгрузка и прием товаров, разгрузка товара вручную </li>    
-                            <li>выкладка товара на складе </li> 
-                            <li>сборка заказов с помощью терминала сбора данных, за смену собирается от 160 аказов разного веса</li>
-                            <li>График: 5/2 с плавающими выходными, смены чередуются: утро с 7:00 до 16.00, вечер: с 15:00 до 00:00.</li>
-                        </ul>
-                        <a href="https://trk.ppdu.ru/click/yvvs2B6u?erid=2SDnjdu4gFa" class="apply-button" target="_blank">Подробнее</a>
-                    </div>
-                </div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Станьте курьером<br>по доставке еды</h1>
+            <p>пешком • на велосипеде • на авто</p>
+            <a href="https://trk.ppdu.ru/click?uid=20986&pid=1&oid=31ba9c13-4847-41f9-bc4a-1f4a1fbced43&erid=Kra23uVC3">
+                <button class="apply-btn">Стать курьером</button>
+            </a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Условия работы</h2>
+        <p>Преимущества работы курьером:</p>
+        <ul>
+            <li><strong>Доход до 3 500 рублей в день</strong></li>
+            <li><strong>Можно использовать как подработку</strong><br>Легко совмещать с учебой или работой.</li>
+            <li><strong>Заказы на доставку собраны и оплачены</strong><br>Вы только доставляете!</li>
+            <li><strong>Район на выбор</strong><br>Можно менять каждую смену.</li>
+            <li><strong>Чаевые и доплаты 100% ваши</strong></li>
+            <li><strong>Большое количество поступающих заказов (24/7)</strong><br>Удобное время для работы.</li>
+        </ul>
+    </section>
+
+    <section id="vacancies" class="vacancies-section">
+        <div class="vacancies-content">
+            <div class="vacancies-image">
+                <img src="images/курьер реал девушка.jpg" alt="Требования" class="vacancies-img">
             </div>
-
-            <div class="job-listing">
-                <div class="job">
-                    <img src="images/яндекс-лавка.png" alt="Логотип компании" class="job-logo">
-                    <div class="job-info">
-                        <h2>Повар в Яндекс Лавка </h2>
-                        <div class="job-details">
-                            <h3>Условия</h3>
-                            <ul>
-                                <li>Доход  до 101 149 до вычета налога</li>
-                                <li>Есть распродажа для сотрудников, скидка до 70% на продукты питания! ( все продукты с хорошим сроком годности)</li> 
-                                <li>разгрузка и прием товаров, разгрузка товара вручную </li>    
-                                <li>выкладка товара на складе </li> 
-                                <li>сборка заказов с помощью терминала сбора данных, за смену собирается от 160 аказов разного веса</li>
-                                <li>График: 5/2 с плавающими выходными, смены чередуются: утро с 7:00 до 16.00, вечер: с 15:00 до 00:00.</li>
-                            </ul>
-                            <a href="https://trk.ppdu.ru/click/yvvs2B6u?erid=2SDnjdu4gFa" class="apply-button" target="_blank">Подробнее</a>
-                        </div>
-                    </div>
-                </div>            
-
-            <div class="job-listing">
-                <div class="job">
-                    <img src="images/вкусвилл.png" alt="Логотип компании" class="job-logo">
-                    <div class="job-info">
-                        <h2>Повар, Пекарь, Бариста ВкусВилл ВкусВилл </h2>
-                        <div class="job-details">
-                            <h3>Условия</h3>
-                            <ul>
-                                <li>Компенсация питания</li>
-                                <li>Оплачиваемая стажировка</li> 
-                                <li>Компенсация расходов на медкнижку</li>    
-                                <li>Отсутствие штрафов </li> 
-                                <li>Удобный график</li>
-                                <li>Скидки на продукцию компании</li>
-                            </ul>
-                            <a href="https://trk.ppdu.ru/click/HH6l6KcZ?erid=Kra249bGK" class="apply-button" target="_blank">Подробнее</a>
-                        </div>
-                    </div>
-                </div>
-
-            <div class="job-listing">
-                <div class="job">
-                    <img src="images/СБЕР - МАРКЕТ.png" alt="Логотип компании" class="job-logo">
-                    <div class="job-info">
-                        <h2>СберМаркет // Вакансии</h2>
-                        <div class="job-details">
-                            <h3>Требуются:</h3>
-                            <ul>
-                                <li>– водитель-курьер</li>
-                                <li>– сборщик</li> 
-                                <li>– пеший курьер</li>    
-                            </ul>
-                            <a href="https://trk.ppdu.ru/click/nA5f6bPG?erid=2SDnjeL6Zwp" class="apply-button" target="_blank">Подробнее</a>
-                        </div>
-                    </div>
-                </div>      
+            <div class="vacancies-text">
+                <h3>Требования</h3>
+                <ul>
+                    <li>Телефон на базе Android 7.0 и выше или iPhone</li>
+                    <li>Велокурьеры приветствуются (партнер предоставляет скидки на велосипед до 20%)</li>
+                    <li>Удостоверение личности</li>
+                    <li>Возраст от 18 лет (в некоторых городах с 16 лет).</li>
+                </ul>
                 
-
-            
-        <div class="job-listing">
-            <div class="job">
-                <img src="images/courier-logo.png" alt="Логотип компании" class="job-logo">
-                <div class="job-info">
-                    <h2>Курьер к партнеру сервиса Яндекс Еда</h2>
-                    <div class="job-details">
-                        <h3>Условия</h3>
-                        <ul>
-                            <li>Комфортное расписание</li>
-                            <li>Гарантии и бонусы</li>
-                            <li>Большое количество поступающих заказов (заказы поступают 24/7 круглосуточно)</li>
-                            <li>Доход до 3500 рублей в день</li>
-                        </ul>
-                        <a href="https://trk.ppdu.ru/click/YylwwThC?erid=Kra23uVC3" class="apply-button" target="_blank">Подробнее</a>
-                    </div>
-                </div>
+                <a href="https://trk.ppdu.ru/click?uid=20986&pid=1&oid=31ba9c13-4847-41f9-bc4a-1f4a1fbced43&erid=Kra23uVC3">
+                    <button class="apply-btn">Стать курьером</button>
+                </a>
             </div>
-
-            <!-- Другие вакансии -->
-            <div class="job">
-                <img src="images/т-банк.png" alt="Логотип компании" class="job-logo">
-                <div class="job-info">
-                    <h2>Работа в Т-Банк</h2>
-                    <div class="job-details">
-                        <h3>Работа разных направлений:</h3>
-                        <ul>                            
-                            <li>Домашний колл центр(ДКЦ). Работа из дома: взыскание задолженностей, привлечение новых клиентов и ведение уже существующих.</li>
-                            <li>Разъездная работа. Это представители компании по всей России: доставка карт, работа за стойками в крупных Торговых центрах.</li>
-                            <li>Работа в офисе. Это поддержка клиентов Банка из московского офиса Тинькофф.</li>             
-                        </ul>                        
-                        <h3>Условия</h3>
-                        <ul>
-                            <li>Доход без ограничений. Финансовая стабильность и возможность получать повышенное вознаграждение за дополнительные часы работы или активную продажу продуктов</li>
-                            <li>Удобный график работы. Работайте 5/2, 2/2 или по гибкому графику с почасовой оплатой — удаленно или в офисе. Если совмещаете с учебой, то подберем подходящую вакансию</li> 
-                            <li>Можно без опыта. Главное — коммуникабельность, активность и желание работать, остальному научим. Начните свою карьеру в крупной и современной компании</li>   
-                        </ul>
-                        <a href="https://trk.ppdu.ru/click/kDCBd4H0?erid=2SDnjcbs16H" class="apply-button" target="_blank">Подробнее</a>
-                    </div>
-                </div>
-            </div>     
-
-   
-
-            <div class="job">
-                <img src="images/Альфа.png" alt="Логотип компании" class="job-logo">
-                <div class="job-info">
-                    <h2>Специалист по доставке пластиковых карт</h2>
-                    <div class="job-details">
-                        <h3>Обязанности</h3>
-                        <p>Доставлять клиентам банковские продукты</p>
-                        <p>Подписывать документы с клиентами</p>
-                        <p>Консультировать клиентов по выгодным предложениям и продуктам банка, помогать им подключить дополнительные услуги</p>
-                        <h3>Условия</h3>
-                        <ul>
-                            <li>Достойная зарплата от 60000 руб., на размер которой вы сами сможете влиять</li>
-                            <li>Гибкий график: 5/2, 2/2, 4/2,3/2</li>
-                            <li>Оформление по ТК РФ</li>
-                            <li>Карьерный рост</li>
-                        </ul>
-                        <a href="https://trk.ppdu.ru/click/OtuK6vcE?erid=2SDnjbsvvT3" class="apply-button" target="_blank">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="job">
-                <img src="images/яндекс.png" alt="Логотип компании" class="job-logo">
-                <div class="job-info">
-                    <h2>Пеший исследователь в Яндекс Карты</h2>
-                    <div class="job-details">
-                        <h3>Работа разных направлений:Что предстоит делать кандидатам (исследователям):</h3>
-                        <ul>                            
-                            <li>ходить по городу и собирать данные об организациях: кафе, магазинах, ателье и других;</li>
-                            <li>проверять, чтобы сведения в Яндекс Картах были актуальными;</li>
-                            <li>добавлять организации, которые еще не отмечены на Картах;</li>  
-                            <li>общаться с их представителями, если возникают вопросы;</li> 
-                            <li>сдельная оплата зависит от количества выполненных задач, чем больше вы их делаете, тем выше вознаграждение;</li> 
-                            <li>работа в интервале с 10:00 до 18:00 по будням от 25 часов в неделю.</li>            
-                        </ul>                        
-                        <h3>Требования</h3>
-                        <ul>
-                            <li>телефон на базе Android 7.0 и выше;</li>
-                            <li>ноутбук или компьютер с доступом в интернет;</li> 
-                            <li>грамотно разговаривает и пишет по-русски;</li>  
-                            <li>не стесняется говорить с людьми;</li>
-                            <li>хорошо ориентируется в городе;</li>
-                            <li>готов много ходить пешком.</li> 
-                        </ul>
-                        <a href="https://trk.ppdu.ru/click/6NLJ8uRZ?erid=2SDnjeiojYu" class="apply-button" target="_blank">Подробнее</a>
-                    </div>
-                </div>
-            </div>                   
         </div>
-    </div>
+    </section>
+
+    <section id="how-to-become">
+        <div class="how-to-become-content">
+            <div class="how-to-become-text">
+                <h3>Как стать курьером</h3>
+                <ul>
+                    <li>Перейдите на страницу регистрации по кнопке «Стать курьером».</li>
+                    <li>Заполните анкету и ознакомьтесь с условиями сотрудничества.</li>
+                    <li>Выберите время и адрес курьерского центра для получения сумки.</li>
+                    <li>Получите сумку, активируйте приложение и приступайте к работе.</li>
+                </ul>
+            </div>
+            <div class="how-to-become-image">
+                <img src="images/курьер реал.jpg" alt="Как стать курьером">
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2 style="text-align: center;">Отзывы</h2>
+        <div class="reviews-container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <p><strong>Дмитрий, пеший курьер</strong></p>
+                        <p>"Для меня пешая доставка — это идеальный вариант. Я живу в центре города и быстро передвигаюсь по нему. Благодаря этому я могу делать доставку даже в часы пик, когда на дороге огромные пробки. Работать пешим курьером очень удобно."</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p><strong>Марина, курьер на велосипеде</strong></p>
+                        <p>"Работа на велосипеде — отличная альтернатива для тех, кто не хочет сидеть в пробках и заботится о своей физической форме. Доставлять быстро и легко, а еще это экологично! Я очень довольна, что выбрала этот способ доставки."</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p><strong>Алексей, курьер на личном авто</strong></p>
+                        <p>"Работа курьером на личном авто — это именно то, что мне нужно! Я сам определяю, когда работать, и зарабатываю достойно. Плюс, не нужно тратить время на общественный транспорт. Рекомендую тем, кто хочет сочетать работу и личное время."</p>
+                    </div>
+                </div>
+                <!-- Навигация -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <form class="review-form">
+            <textarea placeholder="Оставьте отзыв" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+
+    <section class="keywords-section">
+        <ul>
+            <li>Курьер на личном авто</li>
+            <li>Курьер на велосипеде</li>
+            <li>Пеший курьер</li>
+            <li>Курьер на доставку в свободное время</li>
+            <li>Курьер с частичной занятостью</li>
+            <li>Курьер на доставку в выходные дни</li>
+            <li>Курьер по совместительству</li>
+            <li>Курьер без опыта</li>
+            <li>Самозанятый курьер</li>
+            <li>Курьер с ежедневными выплатами</li>
+            <li>Быстрый выход на доставку</li>
+        </ul>
+    </section>
+
     <footer>
-        <div class="footer-content">
-            <p>Сапан Алексей Викторович</p>
-            <p>ИНН 502239139834</p>
-            <p>Телефон: +7 (985) 197-8907</p>
-            <p>Email: alexsapan@mail.ru</p>
-        </div>
+        <h2 style="text-align: center;" id="contacts">Контакты</h2>
+        <p style="text-align: center;">Телефон: +7 (985) 197-8907</p>
+        <p style="text-align: center;">Email: alexsapan@mail.ru</p>        
     </footer>
-</body>
-</html>
-    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper('.swiper-container', {
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                spaceBetween: 20,
+            });
+        });
+    </script>
 </body>
 </html>
