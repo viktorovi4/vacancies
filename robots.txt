@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Sitemap: https://github.com/viktorovi4/vacancies/sitemap.xml
+Sitemap: https://github.com/viktorovi4/vacancies/blob/main/sitemap.xml
