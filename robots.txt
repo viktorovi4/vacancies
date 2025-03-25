@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Sitemap: https://prostaya-rabota.ru/sitemap.xml
+Sitemap: https://github.com/viktorovi4/vacancies/sitemap.xml
