@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Sitemap: https://prostaya-rabota.ru/.ru/sitemap.xml
+Sitemap: https://prostaya-rabota.ru/sitemap.xml
