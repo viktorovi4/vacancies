@@ -51,11 +51,21 @@ header {
 }
 
 .apply-btn {
-    background: #ffcc00;
+    background: #FF6B6B; /* Ярко-красный вместо желтого */
+    color: white !important; /* Белый текст для контраста */
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px; /* Увеличенный размер */
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.1em;
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); /* Тень для объема */
+    transition: all 0.3s ease; /* Плавные анимации */
+}
+
+.apply-btn:hover {
+    background: #FF5252; /* Темнее при наведении */
+    transform: translateY(-2px); /* Эффект "приподнятия" */
+    box-shadow: 0 6px 20px rgba(255, 82, 82, 0.5);
 }
 
 #hero {
@@ -463,8 +473,10 @@ label:hover {
     }
 
     .apply-btn {
-        font-size: 14px;
-        padding: 8px 16px;
+        padding: 10px 20px;
+        font-size: 1em;
+        width: 100%; /* На всю ширину экрана */
+        margin-top: 10px;
     }
 
     form button, .review-form button {
