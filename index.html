@@ -86,6 +86,537 @@
         </div>
     </section>
 
+
+    <section id="calculator">
+        <div class="container">
+            <h2>Рассчитайте ваш доход</h2>
+            <div class="calculator-wrapper">
+                <div class="calc-controls">
+                    <div class="calc-item">
+                        <label>Тип курьера:</label>
+                        <select id="courierType">
+                            <option value="pedestrian">Пеший</option>
+                            <option value="bicycle">Велокурьер</option>
+                            <option value="car">Автокурьер</option>
+                        </select>
+                    </div>
+                    
+                    <div class="calc-item">
+                        <label>Город работы:</label>
+                        <input type="text" id="cityInput" list="cities" placeholder="Начните вводить город">
+                        <datalist id="cities"></datalist>
+                    </div>
+    
+                    <div class="calc-item">
+                        <label>Рабочих дней:</label>
+                        <input type="number" id="workDays" min="1" max="31" value="22">
+                    </div>
+                </div>
+    
+                <div class="calc-result">
+                    <h3>Ваш заработок:</h3>
+                    <div class="result-line">
+                        <span>В день:</span>
+                        <strong id="dailyIncome">0 ₽</strong>
+                    </div>
+                    <div class="result-line">
+                        <span>За все время:</span>
+                        <strong id="monthlyIncome">0 ₽</strong>
+                    </div>
+                    <small>*Все расчеты являются приблизительными </small>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+    #calculator {
+        padding: 40px 0;
+        background: #f8f9fa;
+        border-top: 3px solid #ff6b6b;
+    }
+    
+    .calculator-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+    
+    .calc-controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .calc-item label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+    }
+    
+    .calc-item select, 
+    .calc-item input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+    
+    .calc-result {
+        padding: 25px;
+        background: #fff7e6;
+        border-radius: 10px;
+        border: 2px solid #ff6b6b;
+    }
+    
+    .result-line {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px 0;
+        font-size: 18px;
+    }
+    
+    .result-line strong {
+        color: #ff6b6b;
+        font-size: 24px;
+    }
+    
+    @media (max-width: 768px) {
+        .calc-controls {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+    
+    <script>
+        // Автоматически сгенерированные данные
+        const incomeData = {
+            pedestrian: {
+                'Адлер': {daily: 2470, monthly: 61750},
+                'Альметьевск': {daily: 2630, monthly: 65750},
+                'Анапа': {daily: 2470, monthly: 61750},
+                'Астрахань': {daily: 2630, monthly: 65750},
+                'Балашиха': {daily: 3280, monthly: 82000},
+                'Барнаул': {daily: 2470, monthly: 61750},
+                'Белгород': {daily: 2630, monthly: 65750},
+                'Брянск': {daily: 2630, monthly: 65750},
+                'Великий Новгород': {daily: 2470, monthly: 61750},
+                'Видное': {daily: 3280, monthly: 82000},
+                'Владивосток': {daily: 2630, monthly: 65750},
+                'Владимир': {daily: 2630, monthly: 65750},
+                'Владикавказ': {daily: 2470, monthly: 61750},
+                'Волгоград': {daily: 3280, monthly: 82000},
+                'Волжский': {daily: 2470, monthly: 61750},
+                'Вологда': {daily: 2630, monthly: 65750},
+                'Воронеж': {daily: 3280, monthly: 82000},
+                'Всеволожск': {daily: 3280, monthly: 82000},
+                'Геленджик': {daily: 2470, monthly: 61750},
+                'Дзержинск': {daily: 3280, monthly: 82000},
+                'Дмитров': {daily: 3280, monthly: 82000},
+                'Долгопрудный': {daily: 3280, monthly: 82000},
+                'Домодедово': {daily: 3280, monthly: 82000},
+                'Егорьевск': {daily: 3280, monthly: 82000},
+                'Екатеринбург': {daily: 3280, monthly: 82000},
+                'Железнодорожный': {daily: 3280, monthly: 82000},
+                'Жуковский': {daily: 3280, monthly: 82000},
+                'Зеленоград': {daily: 3280, monthly: 82000},
+                'Иваново': {daily: 2630, monthly: 65750},
+                'Ивантеевка': {daily: 3280, monthly: 82000},
+                'Ижевск': {daily: 2630, monthly: 65750},
+                'Иркутск': {daily: 2470, monthly: 61750},
+                'Йошкар-Ола': {daily: 2470, monthly: 61750},
+                'Казань': {daily: 3280, monthly: 82000},
+                'Калининград': {daily: 2470, monthly: 61750},
+                'Калуга': {daily: 2470, monthly: 61750},
+                'Кемерово': {daily: 2470, monthly: 61750},
+                'Киров': {daily: 2470, monthly: 61750},
+                'Коломна': {daily: 3280, monthly: 82000},
+                'Колпино': {daily: 3280, monthly: 82000},
+                'Королев': {daily: 3280, monthly: 82000},
+                'Кострома': {daily: 2630, monthly: 65750},
+                'Красногорск': {daily: 3280, monthly: 82000},
+                'Краснодар': {daily: 3280, monthly: 82000},
+                'Красноярск': {daily: 3280, monthly: 82000},
+                'Кудрово': {daily: 3280, monthly: 82000},
+                'Курск': {daily: 2470, monthly: 61750},
+                'Липецк': {daily: 2630, monthly: 65750},
+                'Лобня': {daily: 3280, monthly: 82000},
+                'Люберцы': {daily: 3280, monthly: 82000},
+                'Магнитогорск': {daily: 2470, monthly: 61750},
+                'Майкоп': {daily: 2630, monthly: 65750},
+                'Москва': {daily: 3760, monthly: 94000},
+                'Мурино': {daily: 3280, monthly: 82000},
+                'Мытищи': {daily: 3280, monthly: 82000},
+                'Набережные Челны': {daily: 2630, monthly: 65750},
+                'Нальчик': {daily: 2470, monthly: 61750},
+                'Наро-Фоминск': {daily: 3280, monthly: 82000},
+                'Нижневартовск': {daily: 2470, monthly: 61750},
+                'Нижнекамск': {daily: 2470, monthly: 61750},
+                'Нижний Новгород': {daily: 3280, monthly: 82000},
+                'Новокузнецк': {daily: 2470, monthly: 61750},
+                'Новороссийск': {daily: 2470, monthly: 61750},
+                'Новосибирск': {daily: 3280, monthly: 82000},
+                'Ногинск': {daily: 3280, monthly: 82000},
+                'Обнинск': {daily: 2630, monthly: 65750},
+                'Одинцово': {daily: 3280, monthly: 82000},
+                'Омск': {daily: 3280, monthly: 82000},
+                'Орел': {daily: 2470, monthly: 61750},
+                'Оренбург': {daily: 2470, monthly: 61750},
+                'Пенза': {daily: 2470, monthly: 61750},
+                'Пермь': {daily: 3280, monthly: 82000},
+                'Петрозаводск': {daily: 2630, monthly: 65750},
+                'Подольск': {daily: 3280, monthly: 82000},
+                'Псков': {daily: 2470, monthly: 61750},
+                'Пушкин': {daily: 3280, monthly: 82000},
+                'Пушкино': {daily: 3280, monthly: 82000},
+                'Пятигорск': {daily: 2470, monthly: 61750},
+                'Раменское': {daily: 3280, monthly: 82000},
+                'Реутов': {daily: 3280, monthly: 82000},
+                'Ростов-на-Дону': {daily: 3280, monthly: 82000},
+                'Рязань': {daily: 2630, monthly: 65750},
+                'Самара': {daily: 3280, monthly: 82000},
+                'Санкт-Петербург': {daily: 3760, monthly: 94000},
+                'Саранск': {daily: 2470, monthly: 61750},
+                'Саратов': {daily: 2630, monthly: 65750},
+                'Сергиев Посад': {daily: 3280, monthly: 82000},
+                'Серпухов': {daily: 3280, monthly: 82000},
+                'Смоленск': {daily: 2630, monthly: 65750},
+                'Солнечногорск': {daily: 3280, monthly: 82000},
+                'Сочи': {daily: 2470, monthly: 61750},
+                'Ставрополь': {daily: 2630, monthly: 65750},
+                'Старый Оскол': {daily: 2470, monthly: 61750},
+                'Стерлитамак': {daily: 2470, monthly: 61750},
+                'Ступино': {daily: 3280, monthly: 82000},
+                'Сургут': {daily: 2630, monthly: 65750},
+                'Сыктывкар': {daily: 2470, monthly: 61750},
+                'Таганрог': {daily: 2630, monthly: 65750},
+                'Тамбов': {daily: 2630, monthly: 65750},
+                'Тверь': {daily: 2630, monthly: 65750},
+                'Тольятти': {daily: 2470, monthly: 61750},
+                'Томск': {daily: 2470, monthly: 61750},
+                'Троицк': {daily: 3280, monthly: 82000},
+                'Тула': {daily: 2630, monthly: 65750},
+                'Тюмень': {daily: 2630, monthly: 65750},
+                'Ульяновск': {daily: 2630, monthly: 65750},
+                'Уфа': {daily: 3280, monthly: 82000},
+                'Хабаровск': {daily: 2630, monthly: 65750},
+                'Химки': {daily: 3280, monthly: 82000},
+                'Чебоксары': {daily: 2470, monthly: 61750},
+                'Челябинск': {daily: 3280, monthly: 82000},
+                'Череповец': {daily: 2630, monthly: 65750},
+                'Чехов': {daily: 3280, monthly: 82000},
+                'Шушары': {daily: 3280, monthly: 82000},
+                'Щелково': {daily: 3280, monthly: 82000},
+                'Щербинка': {daily: 3280, monthly: 82000},
+                'Электросталь': {daily: 3280, monthly: 82000},
+                'Южное Бутово': {daily: 3280, monthly: 82000},
+                'Ярославль': {daily: 2630, monthly: 65750},
+                'Архангельск': {daily: 2630, monthly: 65750},
+                'Мурманск': {daily: 2630, monthly: 65750},
+                'Новый Уренгой': {daily: 2630, monthly: 65750},
+                'Ханты-Мансийск': {daily: 2630, monthly: 65750}
+            },
+            bicycle: {
+            'Адлер': {daily: 2630, monthly: 65750},
+            'Альметьевск': {daily: 2800, monthly: 70000},
+            'Анапа': {daily: 2630, monthly: 65750},
+            'Астрахань': {daily: 2800, monthly: 70000},
+            'Балашиха': {daily: 3490, monthly: 87250},
+            'Барнаул': {daily: 2630, monthly: 65750},
+            'Белгород': {daily: 2800, monthly: 70000},
+            'Брянск': {daily: 2800, monthly: 70000},
+            'Великий Новгород': {daily: 2630, monthly: 65750},
+            'Видное': {daily: 3490, monthly: 87250},
+            'Владивосток': {daily: 2800, monthly: 70000},
+            'Владимир': {daily: 2800, monthly: 70000},
+            'Владикавказ': {daily: 2630, monthly: 65750},
+            'Волгоград': {daily: 3490, monthly: 87250},
+            'Волжский': {daily: 2630, monthly: 65750},
+            'Вологда': {daily: 2800, monthly: 70000},
+            'Воронеж': {daily: 3490, monthly: 87250},
+            'Всеволожск': {daily: 3490, monthly: 87250},
+            'Геленджик': {daily: 2630, monthly: 65750},
+            'Дзержинск': {daily: 3490, monthly: 87250},
+            'Дмитров': {daily: 3490, monthly: 87250},
+            'Долгопрудный': {daily: 3490, monthly: 87250},
+            'Домодедово': {daily: 3490, monthly: 87250},
+            'Егорьевск': {daily: 3490, monthly: 87250},
+            'Екатеринбург': {daily: 3490, monthly: 87250},
+            'Железнодорожный': {daily: 3490, monthly: 87250},
+            'Жуковский': {daily: 3490, monthly: 87250},
+            'Зеленоград': {daily: 3490, monthly: 87250},
+            'Иваново': {daily: 2800, monthly: 70000},
+            'Ивантеевка': {daily: 3490, monthly: 87250},
+            'Ижевск': {daily: 2800, monthly: 70000},
+            'Иркутск': {daily: 2630, monthly: 65750},
+            'Йошкар-Ола': {daily: 2630, monthly: 65750},
+            'Казань': {daily: 3490, monthly: 87250},
+            'Калининград': {daily: 2630, monthly: 65750},
+            'Калуга': {daily: 2630, monthly: 65750},
+            'Кемерово': {daily: 2630, monthly: 65750},
+            'Киров': {daily: 2630, monthly: 65750},
+            'Коломна': {daily: 3490, monthly: 87250},
+            'Колпино': {daily: 3490, monthly: 87250},
+            'Королев': {daily: 3490, monthly: 87250},
+            'Кострома': {daily: 2800, monthly: 70000},
+            'Красногорск': {daily: 3490, monthly: 87250},
+            'Краснодар': {daily: 3490, monthly: 87250},
+            'Красноярск': {daily: 3490, monthly: 87250},
+            'Кудрово': {daily: 3490, monthly: 87250},
+            'Курск': {daily: 2630, monthly: 65750},
+            'Липецк': {daily: 2800, monthly: 70000},
+            'Лобня': {daily: 3490, monthly: 87250},
+            'Люберцы': {daily: 3490, monthly: 87250},
+            'Магнитогорск': {daily: 2630, monthly: 65750},
+            'Майкоп': {daily: 2800, monthly: 70000},
+            'Москва': {daily: 4030, monthly: 100750},
+            'Мурино': {daily: 3490, monthly: 87250},
+            'Мытищи': {daily: 3490, monthly: 87250},
+            'Набережные Челны': {daily: 2800, monthly: 70000},
+            'Нальчик': {daily: 2630, monthly: 65750},
+            'Наро-Фоминск': {daily: 3490, monthly: 87250},
+            'Нижневартовск': {daily: 2630, monthly: 65750},
+            'Нижнекамск': {daily: 2630, monthly: 65750},
+            'Нижний Новгород': {daily: 3490, monthly: 87250},
+            'Новокузнецк': {daily: 2630, monthly: 65750},
+            'Новороссийск': {daily: 2630, monthly: 65750},
+            'Новосибирск': {daily: 3490, monthly: 87250},
+            'Ногинск': {daily: 3490, monthly: 87250},
+            'Обнинск': {daily: 2800, monthly: 70000},
+            'Одинцово': {daily: 3490, monthly: 87250},
+            'Омск': {daily: 3490, monthly: 87250},
+            'Орел': {daily: 2630, monthly: 65750},
+            'Оренбург': {daily: 2630, monthly: 65750},
+            'Пенза': {daily: 2630, monthly: 65750},
+            'Пермь': {daily: 3490, monthly: 87250},
+            'Петрозаводск': {daily: 2800, monthly: 70000},
+            'Подольск': {daily: 3490, monthly: 87250},
+            'Псков': {daily: 2630, monthly: 65750},
+            'Пушкин': {daily: 3490, monthly: 87250},
+            'Пушкино': {daily: 3490, monthly: 87250},
+            'Пятигорск': {daily: 2630, monthly: 65750},
+            'Раменское': {daily: 3490, monthly: 87250},
+            'Реутов': {daily: 3490, monthly: 87250},
+            'Ростов-на-Дону': {daily: 3490, monthly: 87250},
+            'Рязань': {daily: 2800, monthly: 70000},
+            'Самара': {daily: 3490, monthly: 87250},
+            'Санкт-Петербург': {daily: 4030, monthly: 100750},
+            'Саранск': {daily: 2630, monthly: 65750},
+            'Саратов': {daily: 2800, monthly: 70000},
+            'Сергиев Посад': {daily: 3490, monthly: 87250},
+            'Серпухов': {daily: 3490, monthly: 87250},
+            'Смоленск': {daily: 2800, monthly: 70000},
+            'Солнечногорск': {daily: 3490, monthly: 87250},
+            'Сочи': {daily: 2630, monthly: 65750},
+            'Ставрополь': {daily: 2800, monthly: 70000},
+            'Старый Оскол': {daily: 2630, monthly: 65750},
+            'Стерлитамак': {daily: 2630, monthly: 65750},
+            'Ступино': {daily: 3490, monthly: 87250},
+            'Сургут': {daily: 2800, monthly: 70000},
+            'Сыктывкар': {daily: 2630, monthly: 65750},
+            'Таганрог': {daily: 2800, monthly: 70000},
+            'Тамбов': {daily: 2800, monthly: 70000},
+            'Тверь': {daily: 2800, monthly: 70000},
+            'Тольятти': {daily: 2630, monthly: 65750},
+            'Томск': {daily: 2630, monthly: 65750},
+            'Троицк': {daily: 3490, monthly: 87250},
+            'Тула': {daily: 2800, monthly: 70000},
+            'Тюмень': {daily: 2800, monthly: 70000},
+            'Ульяновск': {daily: 2800, monthly: 70000},
+            'Уфа': {daily: 3490, monthly: 87250},
+            'Хабаровск': {daily: 2800, monthly: 70000},
+            'Химки': {daily: 3490, monthly: 87250},
+            'Чебоксары': {daily: 2630, monthly: 65750},
+            'Челябинск': {daily: 3490, monthly: 87250},
+            'Череповец': {daily: 2800, monthly: 70000},
+            'Чехов': {daily: 3490, monthly: 87250},
+            'Шушары': {daily: 3490, monthly: 87250},
+            'Щелково': {daily: 3490, monthly: 87250},
+            'Щербинка': {daily: 3490, monthly: 87250},
+            'Электросталь': {daily: 3490, monthly: 87250},
+            'Южное Бутово': {daily: 3490, monthly: 87250},
+            'Ярославль': {daily: 2800, monthly: 70000},
+            'Архангельск': {daily: 2800, monthly: 70000},
+            'Мурманск': {daily: 2800, monthly: 70000},
+            'Новый Уренгой': {daily: 2800, monthly: 70000},
+            'Ханты-Мансийск': {daily: 2800, monthly: 70000}
+        },
+
+        car: {
+            'Адлер': {daily: 4030, monthly: 100750},
+            'Альметьевск': {daily: 4300, monthly: 107500},
+            'Анапа': {daily: 4030, monthly: 100750},
+            'Астрахань': {daily: 4300, monthly: 107500},
+            'Балашиха': {daily: 5380, monthly: 134500},
+            'Барнаул': {daily: 4030, monthly: 100750},
+            'Белгород': {daily: 4300, monthly: 107500},
+            'Брянск': {daily: 4300, monthly: 107500},
+            'Великий Новгород': {daily: 4030, monthly: 100750},
+            'Видное': {daily: 5380, monthly: 134500},
+            'Владивосток': {daily: 4300, monthly: 107500},
+            'Владимир': {daily: 4300, monthly: 107500},
+            'Владикавказ': {daily: 4030, monthly: 100750},
+            'Волгоград': {daily: 5380, monthly: 134500},
+            'Волжский': {daily: 4030, monthly: 100750},
+            'Вологда': {daily: 4300, monthly: 107500},
+            'Воронеж': {daily: 5380, monthly: 134500},
+            'Всеволожск': {daily: 5380, monthly: 134500},
+            'Геленджик': {daily: 4030, monthly: 100750},
+            'Дзержинск': {daily: 5380, monthly: 134500},
+            'Дмитров': {daily: 5380, monthly: 134500},
+            'Долгопрудный': {daily: 5380, monthly: 134500},
+            'Домодедово': {daily: 5380, monthly: 134500},
+            'Егорьевск': {daily: 5380, monthly: 134500},
+            'Екатеринбург': {daily: 5380, monthly: 134500},
+            'Железнодорожный': {daily: 5380, monthly: 134500},
+            'Жуковский': {daily: 5380, monthly: 134500},
+            'Зеленоград': {daily: 5380, monthly: 134500},
+            'Иваново': {daily: 4300, monthly: 107500},
+            'Ивантеевка': {daily: 5380, monthly: 134500},
+            'Ижевск': {daily: 4300, monthly: 107500},
+            'Иркутск': {daily: 4030, monthly: 100750},
+            'Йошкар-Ола': {daily: 4030, monthly: 100750},
+            'Казань': {daily: 5380, monthly: 134500},
+            'Калининград': {daily: 4030, monthly: 100750},
+            'Калуга': {daily: 4030, monthly: 100750},
+            'Кемерово': {daily: 4030, monthly: 100750},
+            'Киров': {daily: 4030, monthly: 100750},
+            'Коломна': {daily: 5380, monthly: 134500},
+            'Колпино': {daily: 5380, monthly: 134500},
+            'Королев': {daily: 5380, monthly: 134500},
+            'Кострома': {daily: 4300, monthly: 107500},
+            'Красногорск': {daily: 5380, monthly: 134500},
+            'Краснодар': {daily: 5380, monthly: 134500},
+            'Красноярск': {daily: 5380, monthly: 134500},
+            'Кудрово': {daily: 5380, monthly: 134500},
+            'Курск': {daily: 4030, monthly: 100750},
+            'Липецк': {daily: 4300, monthly: 107500},
+            'Лобня': {daily: 5380, monthly: 134500},
+            'Люберцы': {daily: 5380, monthly: 134500},
+            'Магнитогорск': {daily: 4030, monthly: 100750},
+            'Майкоп': {daily: 4300, monthly: 107500},
+            'Москва': {daily: 6180, monthly: 154500},
+            'Мурино': {daily: 5380, monthly: 134500},
+            'Мытищи': {daily: 5380, monthly: 134500},
+            'Набережные Челны': {daily: 4300, monthly: 107500},
+            'Нальчик': {daily: 4030, monthly: 100750},
+            'Наро-Фоминск': {daily: 5380, monthly: 134500},
+            'Нижневартовск': {daily: 4030, monthly: 100750},
+            'Нижнекамск': {daily: 4030, monthly: 100750},
+            'Нижний Новгород': {daily: 5380, monthly: 134500},
+            'Новокузнецк': {daily: 4030, monthly: 100750},
+            'Новороссийск': {daily: 4030, monthly: 100750},
+            'Новосибирск': {daily: 5380, monthly: 134500},
+            'Ногинск': {daily: 5380, monthly: 134500},
+            'Обнинск': {daily: 4300, monthly: 107500},
+            'Одинцово': {daily: 5380, monthly: 134500},
+            'Омск': {daily: 5380, monthly: 134500},
+            'Орел': {daily: 4030, monthly: 100750},
+            'Оренбург': {daily: 4030, monthly: 100750},
+            'Пенза': {daily: 4030, monthly: 100750},
+            'Пермь': {daily: 5380, monthly: 134500},
+            'Петрозаводск': {daily: 4300, monthly: 107500},
+            'Подольск': {daily: 5380, monthly: 134500},
+            'Псков': {daily: 4030, monthly: 100750},
+            'Пушкин': {daily: 5380, monthly: 134500},
+            'Пушкино': {daily: 5380, monthly: 134500},
+            'Пятигорск': {daily: 4030, monthly: 100750},
+            'Раменское': {daily: 5380, monthly: 134500},
+            'Реутов': {daily: 5380, monthly: 134500},
+            'Ростов-на-Дону': {daily: 5380, monthly: 134500},
+            'Рязань': {daily: 4300, monthly: 107500},
+            'Самара': {daily: 5380, monthly: 134500},
+            'Санкт-Петербург': {daily: 6180, monthly: 154500},
+            'Саранск': {daily: 4030, monthly: 100750},
+            'Саратов': {daily: 4300, monthly: 107500},
+            'Сергиев Посад': {daily: 5380, monthly: 134500},
+            'Серпухов': {daily: 5380, monthly: 134500},
+            'Смоленск': {daily: 4300, monthly: 107500},
+            'Солнечногорск': {daily: 5380, monthly: 134500},
+            'Сочи': {daily: 4030, monthly: 100750},
+            'Ставрополь': {daily: 4300, monthly: 107500},
+            'Старый Оскол': {daily: 4030, monthly: 100750},
+            'Стерлитамак': {daily: 4030, monthly: 100750},
+            'Ступино': {daily: 5380, monthly: 134500},
+            'Сургут': {daily: 4300, monthly: 107500},
+            'Сыктывкар': {daily: 4030, monthly: 100750},
+            'Таганрог': {daily: 4300, monthly: 107500},
+            'Тамбов': {daily: 4300, monthly: 107500},
+            'Тверь': {daily: 4300, monthly: 107500},
+            'Тольятти': {daily: 4030, monthly: 100750},
+            'Томск': {daily: 4030, monthly: 100750},
+            'Троицк': {daily: 5380, monthly: 134500},
+            'Тула': {daily: 4300, monthly: 107500},
+            'Тюмень': {daily: 4300, monthly: 107500},
+            'Ульяновск': {daily: 4300, monthly: 107500},
+            'Уфа': {daily: 5380, monthly: 134500},
+            'Хабаровск': {daily: 4300, monthly: 107500},
+            'Химки': {daily: 5380, monthly: 134500},
+            'Чебоксары': {daily: 4030, monthly: 100750},
+            'Челябинск': {daily: 5380, monthly: 134500},
+            'Череповец': {daily: 4300, monthly: 107500},
+            'Чехов': {daily: 5380, monthly: 134500},
+            'Шушары': {daily: 5380, monthly: 134500},
+            'Щелково': {daily: 5380, monthly: 134500},
+            'Щербинка': {daily: 5380, monthly: 134500},
+            'Электросталь': {daily: 5380, monthly: 134500},
+            'Южное Бутово': {daily: 5380, monthly: 134500},
+            'Ярославль': {daily: 4300, monthly: 107500},
+            'Архангельск': {daily: 4300, monthly: 107500},
+            'Мурманск': {daily: 4300, monthly: 107500},
+            'Новый Уренгой': {daily: 4300, monthly: 107500},
+            'Ханты-Мансийск': {daily: 4300, monthly: 107500}
+        }
+    };
+     
+        
+        // Инициализация списка городов
+        const citiesDatalist = document.getElementById('cities');
+        const allCities = [...new Set(Object.keys(incomeData.pedestrian))];
+        
+        allCities.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            citiesDatalist.appendChild(option);
+        });
+        
+        // Функция расчета
+        function calculateIncome() {
+            const type = document.getElementById('courierType').value;
+            const city = document.getElementById('cityInput').value.trim();
+            const days = parseInt(document.getElementById('workDays').value) || 0;
+            
+            const data = incomeData[type][city];
+            
+            if(data && days > 0) {
+                document.getElementById('dailyIncome').textContent = 
+                    `${data.daily.toLocaleString()} ₽`;
+                    
+                const calculatedMonthly = data.daily * days;
+                document.getElementById('monthlyIncome').textContent = 
+                    `${calculatedMonthly.toLocaleString()} ₽`;
+            } else {
+                document.getElementById('dailyIncome').textContent = '0 ₽';
+                document.getElementById('monthlyIncome').textContent = '0 ₽';
+            }
+        }
+        
+        // Обработчики событий
+        document.querySelectorAll('#calculator select, #calculator input').forEach(el => {
+            el.addEventListener('change', calculateIncome);
+            el.addEventListener('input', calculateIncome);
+        });
+        
+        // Первоначальный расчет
+        calculateIncome();
+        </script>
+                
     <section id="about">
         <h2>Условия работы</h2>
         <p>Преимущества работы курьером:</p>
