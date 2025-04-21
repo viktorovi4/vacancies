@@ -390,6 +390,22 @@ label:hover {
     margin-right: 10px;
 }
 
+footer a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ff6b6b;
+}
+
+footer {
+    padding: 30px 0;
+    background: #333;
+    color: white;
+    margin-top: 50px;
+}
 /* Адаптивность */
 @media (max-width: 768px) {
     .header-content .apply-btn {
