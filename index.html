@@ -718,9 +718,43 @@
     <footer>
         <h2 style="text-align: center;" id="contacts">Контакты</h2>
         <p style="text-align: center;">Телефон: +7 (985) 197-8907</p>
-        <p style="text-align: center;">Email: alexsapan@mail.ru</p>        
+        <p style="text-align: center;">Email: alexsapan@mail.ru</p>   
+        <div class="container">
+            <p style="text-align: center;">
+                <a href="#contacts">Контакты</a> | 
+                <a href="privacy-policy.html">Политика конфиденциальности</a> | 
+                © 2024 Работа курьером
+            </p>
+        </div>             
     </footer>
-
+    <div id="cookie-banner">
+        <p>Мы используем cookies для улучшения работы сайта. 
+        <button onclick="acceptCookies()">Принять</button></p>
+    </div>
+    
+    <style>
+    #cookie-banner {
+        position: fixed;
+        bottom: 0;
+        background: rgba(0,0,0,0.9);
+        color: white;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+    }
+    </style>
+    
+    <script>
+    function acceptCookies() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+    
+    if(!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             new Swiper('.swiper-container', {
